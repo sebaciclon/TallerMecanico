@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 13-jul-2019 15:44:14 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernate.Factura" table="factura" catalog="tallermecanico" optimistic-lock="version">
+        <id name="idFactura" type="java.lang.Integer">
+            <column name="id_factura" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="cliente" class="hibernate.Cliente" fetch="select">
+            <column name="id_cliente" not-null="true" />
+        </many-to-one>
+        <property name="fecha" type="string">
+            <column name="fecha" length="45" not-null="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="1500" not-null="true" />
+        </property>
+        <property name="importe" type="double">
+            <column name="importe" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="pago" type="double">
+            <column name="pago" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="deuda" type="double">
+            <column name="deuda" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="entregado" type="string">
+            <column name="entregado" length="45" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
